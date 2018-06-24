@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?asciidoc-toc maxdepth="4"?>
+<?asciidoc-numbered?>
+<book xmlns="http://docbook.org/ns/docbook" xmlns:xl="http://www.w3.org/1999/xlink" version="5.0" xml:lang="en">
+<info>
+<title>{root-project-name} ({project-version})</title>
+<date>2018-06-24 01:26:28 UTC</date>
+<author>
+<personname>
+<firstname>Maksim</firstname>
+<surname>Kostromin</surname>
+</personname>
+<email>daggerok@gmail.com</email>
+</author>
+<authorinitials>MK</authorinitials>
+<revhistory>
+<revision>
+<revnumber>{project-version}</revnumber>
+<date>2018-06-24 01:26:28 UTC</date>
+<authorinitials>MK</authorinitials>
+</revision>
+</revhistory>
+</info>
+<preface>
+<title></title>
+<simpara>Travis CI status:
+<inlinemediaobject>
+<imageobject>
+<imagedata fileref="https://travis-ci.org/daggerok/{root-project-name}.svg?branch=master"/>
+</imageobject>
+<textobject><phrase>Build Status</phrase></textobject>
+</inlinemediaobject></simpara>
+</preface>
+<chapter xml:id="_introduction">
+<title>Introduction</title>
+<simpara>This project contains example of <literal>docker-compose-maven-plugin</literal> usage</simpara>
+<simpara>Read <link xl:href="https://daggerok.github.io/docker-compose-maven-plugin-example">reference documentation</link></simpara>
+</chapter>
+<chapter xml:id="_implementation">
+<title>Implementation</title>
+<simpara>docker-compose file is located is located in <literal>src/main/docker</literal> directory</simpara>
+<formalpara>
+<title>plugion configuration</title>
+<para>
+<programlisting language="xml" linenumbering="unnumbered">&lt;project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="
+         http://maven.apache.org/POM/4.0.0
+         http://maven.apache.org/xsd/maven-4.0.0.xsd"&gt;
+  &lt;profiles&gt;
+    &lt;profile&gt;
+      &lt;id&gt;docker&lt;/id&gt;
+      &lt;build&gt;
+        &lt;plugins&gt;
+          &lt;plugin&gt;
+            &lt;groupId&gt;com.dkanejs.maven.plugins&lt;/groupId&gt;
+            &lt;artifactId&gt;docker-compose-maven-plugin&lt;/artifactId&gt;
+            &lt;version&gt;1.0.1&lt;/version&gt;
+            &lt;executions&gt;
+              &lt;execution&gt;
+                &lt;id&gt;up&lt;/id&gt;
+                &lt;phase&gt;pre-integration-test&lt;/phase&gt;
+                &lt;!--&lt;phase&gt;test&lt;/phase&gt;--&gt;
+                &lt;goals&gt;
+                  &lt;goal&gt;up&lt;/goal&gt;
+                &lt;/goals&gt;
+              &lt;/execution&gt;
+              &lt;execution&gt;
+                &lt;id&gt;down&lt;/id&gt;
+                &lt;phase&gt;post-integration-test&lt;/phase&gt;
+                &lt;!--&lt;phase&gt;verify&lt;/phase&gt;--&gt;
+                &lt;goals&gt;
+                  &lt;goal&gt;down&lt;/goal&gt;
+                &lt;/goals&gt;
+              &lt;/execution&gt;
+            &lt;/executions&gt;
+            &lt;configuration&gt;
+              &lt;composeFile&gt;${project.basedir}/src/main/docker/docker-compose.yaml&lt;/composeFile&gt;
+              &lt;detachedMode&gt;true&lt;/detachedMode&gt;
+              &lt;removeVolumes&gt;true&lt;/removeVolumes&gt;
+              &lt;detail&gt;true&lt;/detail&gt;
+            &lt;/configuration&gt;
+          &lt;/plugin&gt;
+        &lt;/plugins&gt;
+      &lt;/build&gt;
+    &lt;/profile&gt;
+  &lt;/profiles&gt;
+
+  &lt;build&gt;
+    &lt;/plugins&gt;
+  &lt;/build&gt;
+&lt;/project&gt;</programlisting>
+</para>
+</formalpara>
+</chapter>
+<chapter xml:id="_test_usage">
+<title>Test usage</title>
+<formalpara>
+<title>build fat jar</title>
+<para>
+<programlisting language="bash" linenumbering="unnumbered">./mvnw package</programlisting>
+</para>
+</formalpara>
+<formalpara>
+<title>run app in docker container</title>
+<para>
+<programlisting language="bash" linenumbering="unnumbered">./mvnw com.dkanejs.maven.plugins:docker-compose-maven-plugin:1.0.1:up -P docker</programlisting>
+</para>
+</formalpara>
+<formalpara>
+<title>wait and test</title>
+<para>
+<programlisting language="bash" linenumbering="unnumbered">sleep 35
+open http:127.0.0.1:3000/</programlisting>
+</para>
+</formalpara>
+<formalpara>
+<title>stop docker</title>
+<para>
+<screen>./mvnw com.dkanejs.maven.plugins:docker-compose-maven-plugin:1.0.1:down -P docker</screen>
+</para>
+</formalpara>
+</chapter>
+<chapter xml:id="_build_documentation">
+<title>Build documentation</title>
+<formalpara>
+<title>build documentation</title>
+<para>
+<programlisting language="bash" linenumbering="unnumbered">./mvnw process-resources</programlisting>
+</para>
+</formalpara>
+</chapter>
+<chapter xml:id="_links">
+<title>Links</title>
+<itemizedlist>
+<listitem>
+<simpara><link xl:href="{github-url}">GitHub repo</link></simpara>
+</listitem>
+<listitem>
+<simpara><link xl:href="https://daggerok.github.io/{root-project-name}">GitHub pages</link></simpara>
+</listitem>
+</itemizedlist>
+</chapter>
+<chapter xml:id="_other_links">
+<title>Other links</title>
+<itemizedlist>
+<listitem>
+<simpara><link xl:href="https://github.com/dkanejs/docker-compose-maven-plugin">docker-compose-maven-plugin page</link></simpara>
+</listitem>
+</itemizedlist>
+</chapter>
+</book>
