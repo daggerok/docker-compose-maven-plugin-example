@@ -4,6 +4,6 @@
 
 This project contains example of `docker-compose-maven-plugin` usage
 
-Read link:https://daggerok.github.io/docker-compose-maven-plugin-example[reference documentation]
+Read link:https://daggerok.github.io/docker-compose-maven-plugin-example[project reference documentation]
 
 //end::content[]
