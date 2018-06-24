@@ -1,0 +1,73 @@
+= {root-project-name} ({project-version})
+Maksim Kostromin <daggerok@gmail.com>
+{docdatetime}
+:doctype: book
+:toc: left
+:toclevels: 4
+:source-highlighter: prettify
+:numbered:
+:icons: font
+:hide-uri-scheme:
+:revnumber: {project-version}
+:example-caption!:
+
+Travis CI status:
+image:https://travis-ci.org/daggerok/{root-project-name}.svg?branch=master["Build Status", link={github-url}]
+
+== Introduction
+
+include::../README.adoc[tags=content]
+
+== Implementation
+
+docker-compose file is located is located in `src/main/docker` directory
+
+.plugion configuration
+[source,xml]
+----
+include::../pom.xml[tags=content]
+----
+
+== Test usage
+
+.build fat jar
+[source,bash]
+----
+./mvnw package
+----
+
+.run app in docker container
+[source,bash]
+----
+./mvnw com.dkanejs.maven.plugins:docker-compose-maven-plugin:1.0.1:up -P docker
+----
+
+.wait and test
+[source,bash]
+----
+sleep 35
+open http:127.0.0.1:3000/
+----
+
+.stop docker
+----
+./mvnw com.dkanejs.maven.plugins:docker-compose-maven-plugin:1.0.1:down -P docker
+----
+
+== Build documentation
+
+.build documentation
+[source,bash]
+----
+./mvnw process-resources
+----
+
+== Links
+
+ifdef::backend-html5[- link:./index.pdf[Documentation in PFD format]]
+- link:{github-url}[GitHub repo]
+- link:https://daggerok.github.io/{root-project-name}[GitHub pages]
+
+== Other links
+
+- link:https://github.com/dkanejs/docker-compose-maven-plugin[docker-compose-maven-plugin page]

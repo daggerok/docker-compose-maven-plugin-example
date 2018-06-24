@@ -1,0 +1,9 @@
+= docker-compose-maven-plugin-example image:https://travis-ci.org/daggerok/docker-compose-maven-plugin-example.svg?branch=master["Build Status", link="https://travis-ci.org/daggerok/docker-compose-maven-plugin-example"]
+
+//tag::content[]
+
+This project contains example of `docker-compose-maven-plugin` usage
+
+Read link:https://daggerok.github.io/docker-compose-maven-plugin-example[reference documentation]
+
+//end::content[]
