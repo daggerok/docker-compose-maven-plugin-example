@@ -46,7 +46,7 @@ include::../pom.xml[tags=content]
 [source,bash]
 ----
 sleep 35
-open http:127.0.0.1:3000/
+open http//:127.0.0.1:3000/
 ----
 
 .stop docker
