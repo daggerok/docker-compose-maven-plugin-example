@@ -113,9 +113,9 @@
       </build>
     </profile>
   </profiles>
+  <!-- end::content[] -->
 
   <build>
-    <!-- end::content[] -->
     <defaultGoal>package</defaultGoal>
 
     <plugins>
@@ -239,8 +239,8 @@
           <yarnVersion>v1.7.0</yarnVersion>
         </configuration>
       </plugin>
-    <!-- tag::content[] -->
     </plugins>
   </build>
+  <!-- tag::content[] -->
 </project>
 <!-- end::content[] -->
