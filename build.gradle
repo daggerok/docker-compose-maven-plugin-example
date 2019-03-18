@@ -5,13 +5,13 @@ plugins {
   id "idea"
   id "eclipse"
   id "com.moowork.node" version "1.2.0"
-  id "org.springframework.boot" version "2.0.1.RELEASE"
-  id "io.spring.dependency-management" version "1.0.5.RELEASE"
+  id "org.springframework.boot" version "2.1.4.RELEASE"
+  id "io.spring.dependency-management" version "1.0.7.RELEASE"
 }
 
 allprojects {
   group = "daggerok"
-  version = "0.0.1"
+  version = "0.0.2"
   description = "Spring Boot 5 Reactive Angular ngrx"
 }
 
@@ -34,15 +34,15 @@ dependencies {
 }
 
 task wrapper(type: Wrapper) {
-  distributionType = "ALL"
-  gradleVersion = "4.7"
+  distributionType = "BIN"
+  gradleVersion = "5.2.1"
 }
 
 node {
   download = true
-  version = "9.11.1"
-  npmVersion = "5.6.0"
-  yarnVersion = "1.6.0"
+  version = "10.9.0"
+  npmVersion = "6.9.0"
+  yarnVersion = "1.9.4"
   nodeModulesDir = Paths.get("src", "main", "ngrx").toFile()
 }
 
