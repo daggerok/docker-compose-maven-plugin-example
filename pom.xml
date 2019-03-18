@@ -213,7 +213,7 @@
           <execution>
             <id>npm install</id>
             <goals>
-              <goal>yarn</goal>
+              <goal>npm</goal>
             </goals>
             <phase>process-resources</phase>
             <configuration>
@@ -223,11 +223,11 @@
           <execution>
             <id>npm run build</id>
             <goals>
-              <goal>yarn</goal>
+              <goal>npm</goal>
             </goals>
             <phase>process-resources</phase>
             <configuration>
-              <arguments>build</arguments>
+              <arguments>run build</arguments>
             </configuration>
           </execution>
         </executions>
@@ -235,8 +235,7 @@
           <workingDirectory>src/main/js</workingDirectory>
           <installDirectory>target</installDirectory>
           <nodeVersion>v10.9.0</nodeVersion>
-          <npmVersion>v6.9.0</npmVersion>
-          <yarnVersion>v1.9.4</yarnVersion>
+          <npmVersion>6.9.0</npmVersion>
         </configuration>
       </plugin>
     </plugins>

@@ -4,6 +4,13 @@
 
 This project contains example of `docker-compose-maven-plugin` usage
 
+[source,bash]
+----
+mvn
+mvn docker-compose:up
+mvn docker-compose:down
+----
+
 Read link:https://daggerok.github.io/docker-compose-maven-plugin-example[project reference documentation]
 
 //end::content[]
