@@ -39,8 +39,10 @@ include::../pom.xml[tags=content]
 .run app in docker container
 [source,bash]
 ----
-./mvnw com.dkanejs.maven.plugins:docker-compose-maven-plugin:1.0.1:up -P docker
+./mvnw docker-compose:up -P docker
 ----
+
+//./mvnw com.dkanejs.maven.plugins:docker-compose-maven-plugin:1.0.1:up -P docker
 
 .wait and test
 [source,bash]
@@ -51,8 +53,10 @@ open http//:127.0.0.1:3000/
 
 .stop docker
 ----
-./mvnw com.dkanejs.maven.plugins:docker-compose-maven-plugin:1.0.1:down -P docker
+./mvnw docker-compose:down -P docker
 ----
+
+//./mvnw com.dkanejs.maven.plugins:docker-compose-maven-plugin:1.0.1:down -P docker
 
 == Build documentation
 
