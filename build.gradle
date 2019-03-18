@@ -45,10 +45,9 @@ node {
   nodeModulesDir = Paths.get("src", "main", "ngrx").toFile()
 }
 
-assemble.dependsOn yarn_build
-yarn_build.dependsOn yarn_install
-yarn_lint.dependsOn yarn_install
-//yarn_install.dependsOn yarn_cache_clean
+assemble.dependsOn npm_run_build
+npm_run_build.dependsOn npm_install
+npm_run_lint.dependsOn npm_install
 
 clean.doFirst {
   ["nodejs", "npm", "yarn"].each { delete "$projectDir/.gradle/$it" }
