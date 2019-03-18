@@ -204,14 +204,14 @@
         <version>1.6</version>
         <executions>
           <execution>
-            <id>install node and yarn</id>
+            <id>install node and npm</id>
             <goals>
-              <goal>install-node-and-yarn</goal>
+              <goal>install-node-and-npm</goal>
             </goals>
             <phase>process-resources</phase>
           </execution>
           <execution>
-            <id>yarn install</id>
+            <id>npm install</id>
             <goals>
               <goal>yarn</goal>
             </goals>
@@ -221,7 +221,7 @@
             </configuration>
           </execution>
           <execution>
-            <id>yarn build</id>
+            <id>npm run build</id>
             <goals>
               <goal>yarn</goal>
             </goals>
