@@ -4,7 +4,7 @@
 <book xmlns="http://docbook.org/ns/docbook" xmlns:xl="http://www.w3.org/1999/xlink" version="5.0" xml:lang="en">
 <info>
 <title>{root-project-name} ({project-version})</title>
-<date>2019-03-18 22:36:32 UTC</date>
+<date>2019-03-18 22:40:49 UTC</date>
 <author>
 <personname>
 <firstname>Maksim</firstname>
@@ -16,7 +16,7 @@
 <revhistory>
 <revision>
 <revnumber>{project-version}</revnumber>
-<date>2019-03-18 22:36:32 UTC</date>
+<date>2019-03-18 22:40:49 UTC</date>
 <authorinitials>MK</authorinitials>
 </revision>
 </revhistory>
@@ -55,7 +55,7 @@
           &lt;plugin&gt;
             &lt;groupId&gt;com.dkanejs.maven.plugins&lt;/groupId&gt;
             &lt;artifactId&gt;docker-compose-maven-plugin&lt;/artifactId&gt;
-            &lt;version&gt;1.0.1&lt;/version&gt;
+            &lt;version&gt;2.4.0&lt;/version&gt;
             &lt;executions&gt;
               &lt;execution&gt;
                 &lt;id&gt;up&lt;/id&gt;
