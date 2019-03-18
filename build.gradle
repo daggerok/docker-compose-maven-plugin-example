@@ -33,7 +33,7 @@ dependencies {
   testCompile("io.projectreactor:reactor-test")
 }
 
-task wrapper(type: Wrapper) {
+wrapper {
   distributionType = "BIN"
   gradleVersion = "5.2.1"
 }
