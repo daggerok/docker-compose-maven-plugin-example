@@ -42,7 +42,7 @@ node {
   download = true
   version = "10.9.0"
   npmVersion = "6.9.0"
-  nodeModulesDir = Paths.get("src", "main", "ngrx").toFile()
+  nodeModulesDir = Paths.get("src", "main", "js").toFile()
 }
 
 assemble.dependsOn npm_run_build
