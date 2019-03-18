@@ -52,7 +52,7 @@ npm_run_lint.dependsOn npm_install
 clean.doFirst {
   ["nodejs", "npm", "yarn"].each { delete "$projectDir/.gradle/$it" }
   ["out", "build"].each { delete "$projectDir/$it" }
-  delete Paths.get(node.nodeModulesDir.path, "node_modules")
+  delete Paths.get("$node.nodeModulesDir.path", "node_modules")
 }
 
 defaultTasks "clean", "build"

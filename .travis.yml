@@ -7,11 +7,10 @@ env:
   - secure: Sovqdj8H+Bb2oftIgxTAVn8MAq7GWNF4EyC8ymXJAl9f6tI+NDtks5EqNxOJF3ger3ut29dTL879dZLsk+Wo9SCs6ZqZ+GV9hzvQmsxIE6dhYdbicMaqvnccngsjmyIIEyngUmNAL5SHWkHHehd56xDTc4s/tlpn6hove2jR/Me5XTMIMKNCwSWYR28BsjPTaPlrcM843HfZScqRwSLK2yo1dJLWfJRKQKoBTOr12NCuKmrMoDyp8dPTaWT7ZwbQ8NKYO/MpeUToeUxFmE9Oek239PbB2QneSuOMdNAgceJV/7mxamSHxts3zZ8+ABVhJLujiiVqiZcb1UbbOALvGn+XkgBNEPXcIJsK0/RO8elrfwOGm1Vf222QOuhvxr44cZfAA+zNFYcr4JfDnMoUZUC8p/UtPJm6k9ndGua6wkMkpC7xeyRg/+T9j4nIuL1AafPcXvd54ayf6J+Lj+WhRaUzaQtEA7oU3C1jpSbxzoloVNPJWsW7ThaULaHt2YajU6u1Vj6yWAV3ggWM8mBlLKPfuvTbS0P4xwu8BedbcNOO0luQAnRD3i8NltNzyhz90684I387oGQ4cUJlSr6CfiuDrl2Am5OFus0ifS7u8lpkPW0NEJf4Cl7G+TJO7e6wbzrGrxUSQ1JQmHO4F+WRsUmERP/QyTJQZHbM8m5DYSg=
 
 language: java
-jdk: oraclejdk8
+jdk: openjdk8
 
 addons:
   apt:
-    update: true
     packages:
     - bash
     - tree
@@ -34,11 +33,11 @@ script:
 - http :8080
 - stop_any 8080
 #
-- ./mvnw com.dkanejs.maven.plugins:docker-compose-maven-plugin:1.0.1:up -P docker
+- ./mvnw docker-compose:up -P docker
 - sleep 35
 - http :8080
 
-after_script: ./mvnw com.dkanejs.maven.plugins:docker-compose-maven-plugin:1.0.1:down -P docker
+after_script: ./mvnw docker-compose:down -P docker
 
 before_deploy: ./mvnw process-resources
 
@@ -54,6 +53,8 @@ deploy:
   target_branch: gh-pages
 
 cache:
+  npm: true
+  packages: true
   directories:
   - $HOME/.m2
   - $HOME/.docker
