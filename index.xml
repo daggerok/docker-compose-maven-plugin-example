@@ -4,7 +4,7 @@
 <book xmlns="http://docbook.org/ns/docbook" xmlns:xl="http://www.w3.org/1999/xlink" version="5.0" xml:lang="en">
 <info>
 <title>{root-project-name} ({project-version})</title>
-<date>2019-03-18 23:04:16 UTC</date>
+<date>2019-03-18 23:06:19 UTC</date>
 <author>
 <personname>
 <firstname>Maksim</firstname>
@@ -16,7 +16,7 @@
 <revhistory>
 <revision>
 <revnumber>{project-version}</revnumber>
-<date>2019-03-18 23:04:16 UTC</date>
+<date>2019-03-18 23:06:19 UTC</date>
 <authorinitials>MK</authorinitials>
 </revision>
 </revhistory>
@@ -103,7 +103,7 @@ mvn docker-compose:down</programlisting>
 <formalpara>
 <title>run app in docker container</title>
 <para>
-<programlisting language="bash" linenumbering="unnumbered">./mvnw com.dkanejs.maven.plugins:docker-compose-maven-plugin:1.0.1:up -P docker</programlisting>
+<programlisting language="bash" linenumbering="unnumbered">./mvnw docker-compose:up -P docker</programlisting>
 </para>
 </formalpara>
 <formalpara>
@@ -116,7 +116,7 @@ open http//:127.0.0.1:3000/</programlisting>
 <formalpara>
 <title>stop docker</title>
 <para>
-<screen>./mvnw com.dkanejs.maven.plugins:docker-compose-maven-plugin:1.0.1:down -P docker</screen>
+<screen>./mvnw docker-compose:down -P docker</screen>
 </para>
 </formalpara>
 </chapter>
