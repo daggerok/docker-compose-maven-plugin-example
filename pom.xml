@@ -103,11 +103,21 @@
               </execution>
             </executions>
             <configuration>
-              <composeFile>${project.basedir}/src/main/docker/docker-compose.yaml</composeFile>
+              <composeFiles>
+                <composeFile>${project.basedir}/src/main/docker/docker-compose.yaml</composeFile>
+                <!--<composeFile>${project.basedir}/src/main/docker/docker-compose-override.yaml</composeFile>-->
+              </composeFiles>
               <detachedMode>true</detachedMode>
               <removeVolumes>true</removeVolumes>
+              <removeOrphans>true</removeOrphans>
+              <removeImages>true</removeImages>
+              <removeImagesType>local</removeImagesType>
+              <build>true</build>
               <detail>true</detail>
-            </configuration>
+              <verbose>false</verbose>
+              <projectName>my-cloud</projectName>
+              <!--<apiVersion>1.22</apiVersion>-->
+              <!--<apiVersion>1.39</apiVersion>-->
           </plugin>
         </plugins>
       </build>
