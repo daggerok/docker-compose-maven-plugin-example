@@ -4,7 +4,7 @@
 <book xmlns="http://docbook.org/ns/docbook" xmlns:xl="http://www.w3.org/1999/xlink" version="5.0" xml:lang="en">
 <info>
 <title>{root-project-name} ({project-version})</title>
-<date>2019-03-18 23:06:19 UTC</date>
+<date>2019-04-07 01:27:19 UTC</date>
 <author>
 <personname>
 <firstname>Maksim</firstname>
@@ -16,7 +16,7 @@
 <revhistory>
 <revision>
 <revnumber>{project-version}</revnumber>
-<date>2019-03-18 23:06:19 UTC</date>
+<date>2019-04-07 01:27:19 UTC</date>
 <authorinitials>MK</authorinitials>
 </revision>
 </revhistory>
@@ -45,11 +45,9 @@ mvn docker-compose:down</programlisting>
 <formalpara>
 <title>plugion configuration</title>
 <para>
-<programlisting language="xml" linenumbering="unnumbered">&lt;project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xmlns="http://maven.apache.org/POM/4.0.0"
-         xsi:schemaLocation="
-         http://maven.apache.org/POM/4.0.0
-         http://maven.apache.org/xsd/maven-4.0.0.xsd"&gt;
+<programlisting language="xml" linenumbering="unnumbered">&lt;project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"&gt;
   &lt;profiles&gt;
     &lt;profile&gt;
       &lt;id&gt;docker&lt;/id&gt;
@@ -78,10 +76,21 @@ mvn docker-compose:down</programlisting>
               &lt;/execution&gt;
             &lt;/executions&gt;
             &lt;configuration&gt;
-              &lt;composeFile&gt;${project.basedir}/src/main/docker/docker-compose.yaml&lt;/composeFile&gt;
+              &lt;composeFiles&gt;
+                &lt;composeFile&gt;${project.basedir}/src/main/docker/docker-compose.yaml&lt;/composeFile&gt;
+                &lt;!--&lt;composeFile&gt;${project.basedir}/src/main/docker/docker-compose-override.yaml&lt;/composeFile&gt;--&gt;
+              &lt;/composeFiles&gt;
               &lt;detachedMode&gt;true&lt;/detachedMode&gt;
               &lt;removeVolumes&gt;true&lt;/removeVolumes&gt;
+              &lt;removeOrphans&gt;true&lt;/removeOrphans&gt;
+              &lt;removeImages&gt;true&lt;/removeImages&gt;
+              &lt;removeImagesType&gt;local&lt;/removeImagesType&gt;
+              &lt;build&gt;true&lt;/build&gt;
               &lt;detail&gt;true&lt;/detail&gt;
+              &lt;verbose&gt;false&lt;/verbose&gt;
+              &lt;projectName&gt;my-cloud&lt;/projectName&gt;
+              &lt;!--&lt;apiVersion&gt;1.22&lt;/apiVersion&gt;--&gt;
+              &lt;!--&lt;apiVersion&gt;1.39&lt;/apiVersion&gt;--&gt;
             &lt;/configuration&gt;
           &lt;/plugin&gt;
         &lt;/plugins&gt;
